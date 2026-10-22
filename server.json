@@ -1,0 +1,68 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.zerotaldev/ozow",
+  "title": "Ozow",
+  "description": "Create and track Ozow instant EFT payments in South Africa. Staging-locked by default.",
+  "version": "0.1.0",
+  "websiteUrl": "https://github.com/zerotaldev/ozow-mcp",
+  "repository": {
+    "url": "https://github.com/zerotaldev/ozow-mcp",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "ozow-mcp",
+      "version": "0.1.0",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "OZOW_CLIENT_ID",
+          "description": "One API client ID from the Ozow Portal",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "OZOW_CLIENT_SECRET",
+          "description": "One API client secret from the Ozow Portal",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "OZOW_SITE_CODE",
+          "description": "Ozow site code in the form XXX-XXX-XXX",
+          "isRequired": true,
+          "isSecret": false
+        },
+        {
+          "name": "OZOW_ENV",
+          "description": "Which Ozow environment to use. Staging moves no real money.",
+          "isRequired": false,
+          "isSecret": false,
+          "default": "staging",
+          "choices": [
+            "staging",
+            "production"
+          ]
+        },
+        {
+          "name": "OZOW_ALLOW_PRODUCTION",
+          "description": "Must be set to 'i-understand-this-moves-real-money' when OZOW_ENV is production. Without it the server refuses to start.",
+          "isRequired": false,
+          "isSecret": false
+        },
+        {
+          "name": "OZOW_MAX_AMOUNT",
+          "description": "Ceiling in rands on any single payment request",
+          "isRequired": false,
+          "isSecret": false,
+          "default": "1000"
+        }
+      ]
+    }
+  ]
+}
