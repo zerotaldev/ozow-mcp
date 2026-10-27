@@ -1,5 +1,7 @@
 # ozow-mcp
 
+[![test](https://github.com/zerotaldev/ozow-mcp/actions/workflows/test.yml/badge.svg)](https://github.com/zerotaldev/ozow-mcp/actions/workflows/test.yml)
+
 An MCP server for [Ozow](https://ozow.com), the South African instant EFT
 ("pay by bank") gateway. It lets an AI assistant create and track Ozow payment
 requests.
